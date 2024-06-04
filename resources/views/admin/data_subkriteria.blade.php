@@ -45,7 +45,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="home">
                     <span>Beranda</span></a>
             </li>
@@ -63,7 +63,7 @@
             </li>
 
             <!-- Nav Item - Data Sub Kriteria -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="subkriteria">
                     <span>Data Sub Kriteria</span></a>
             </li>

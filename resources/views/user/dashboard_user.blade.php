@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="dashboard_user.blade.php">
+                <a class="nav-link" href="user">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
             </li>
@@ -57,7 +57,7 @@
 
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
-                <a class="nav-link" href="data_kriteria.blade.php">
+                <a class="nav-link" href="user/kriteria">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Data Kriteria</span></a>
             </li>

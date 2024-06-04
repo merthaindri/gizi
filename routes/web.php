@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\SubKriteriaController;
+use App\Http\Controllers\MakananController;
 
 /* Route::get('/', function () {
     return view('welcome');
@@ -16,7 +17,7 @@ Route::get('/admin', function () {
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard_admin');
-});
+});*/
 
 Route::get('/user', function () {
     return view('user.dashboard_user');
@@ -24,7 +25,7 @@ Route::get('/user', function () {
 
 Route::get('/user/kriteria', function () {
     return view('user.data_kriteria');
-}); */
+}); 
 
 Route::get('/home', [HomeController::class,'home']);
 Route::get('/login', [LoginController::class,'login']);
@@ -44,3 +45,15 @@ Route::post('/editsubkriteria/{id}', [SubKriteriaController::class,'editsubkrite
 Route::get('/hapussubkriteria/{id}', [SubKriteriaController::class,'hapussubkriteria']);
 
 Route::get('/makanan', [MakananController::class, 'makanan']);
+
+Auth::routes();
+Route::middleware(['auth'])->group(function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
+

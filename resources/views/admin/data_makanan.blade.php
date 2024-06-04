@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Kriteria</title>
+    <title>Data Makanan</title>
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('../../vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -51,13 +51,13 @@
             </li>
 
             <!-- Nav Item - Data Makanan -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="makanan">
                     <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Data Kriteria -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="kriteria">
                     <span>Data Kriteria</span></a>
             </li>
@@ -97,19 +97,17 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kriteria</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Makanan</h6>
                         </div>
                         <div class="card-body">
-                        <a href="/tambahkriteria" class="btn btn-secondary">Tambah Data</a>
+                        <a href="" class="btn btn-secondary">Tambah Data</a>
                             <br><br>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Kriteria</th>
-                                            <th>Bobot</th>
-                                            <th>Atribut</th>
+                                            <th>Nama Makanan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -117,12 +115,10 @@
                                         @foreach ($data as $row)
                                             <tr>
                                                 <th scope="row">{{ $row->id }}</th>
-                                                <td>{{ $row->nama }}</td>
-                                                <td>{{ $row->bobot_kriteria }}</td>
-                                                <td>{{ $row->atribut }}</td>
+                                                <td>{{ $row->nama_makanan }}</td>
                                                 <td>
-                                                    <a href="/tampilkriteria/{{ $row->id }}" class="btn btn-secondary">Edit</a>
-                                                    <a href="/hapuskriteria/{{ $row->id }}" class="btn btn-secondary">Hapus</a>
+                                                    <a href="// {{ $row->id }}" class="btn btn-secondary">Edit</a>
+                                                    <a href="//{{ $row->id }}" class="btn btn-secondary">Hapus</a>
                                                 </td>  
                                             </tr>
 

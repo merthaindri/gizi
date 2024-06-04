@@ -44,36 +44,31 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="home">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
             </li>
 
             <!-- Nav Item - Data Makanan -->
             <li class="nav-item">
-                <a class="nav-link" href="data_makanan.blade.php">
-                    <i class="fa-solid fa-utensils"></i>
+                <a class="nav-link" href="makanan">
                     <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
                 <a class="nav-link" href="kriteria">
-                    <i class="fas fa-fw fa-table"></i>
                     <span>Data Kriteria</span></a>
             </li>
 
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
                 <a class="nav-link" href="subkriteria">
-                    <i class="fas fa-fw fa-table"></i>
                     <span>Data Sub Kriteria</span></a>
             </li>
 
             <!-- Nav Item - Hasil Rekomendasi -->
             <li class="nav-item">
                 <a class="nav-link" href="rekomendasi.blade.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Hasil Rekomendasi</span></a>
+                    <span>Perhitungan SAW</span></a>
             </li>
 
             <!-- Divider -->
@@ -90,6 +85,32 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-secondary topbar mb-4 static-top">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-light">Hi, Admin</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <form method="post" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class='dropdown-item'>
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
                 </nav>
                 <!-- End of Topbar -->
 
