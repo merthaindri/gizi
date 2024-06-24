@@ -46,32 +46,26 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="home">
+                <a class="nav-link" href="{{ url('user') }}">
                     <span>Beranda</span></a>
-            </li>
-
-            <!-- Nav Item - Data Makanan -->
-            <li class="nav-item active">
-                <a class="nav-link" href="makanan">
-                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
-                <a class="nav-link" href="kriteria">
+                <a class="nav-link" href="{{ url('user/kriteria') }}">
                     <span>Data Kriteria</span></a>
             </li>
 
-            <!-- Nav Item - Data Sub Kriteria -->
-            <li class="nav-item">
-                <a class="nav-link" href="subkriteria">
-                    <span>Data Sub Kriteria</span></a>
+            <!-- Nav Item - Data Makanan -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('user/makanan') }}">
+                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Hasil Rekomendasi -->
             <li class="nav-item">
                 <a class="nav-link" href="rekomendasi.blade.php">
-                    <span>Perhitungan SAW</span></a>
+                    <span>Hasil Rekomendasi</span></a>
             </li>
 
             <!-- Divider -->
@@ -88,27 +82,6 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-secondary topbar mb-4 static-top">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-light">Hi, Admin</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <form method="post" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class='dropdown-item'>
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Logout
-                                    </button>
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -121,8 +94,6 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Makanan</h6>
                         </div>
                         <div class="card-body">
-                        <a href="/tambahmakanan" class="btn btn-secondary">Tambah Data</a>
-                            <br><br>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -130,19 +101,14 @@
                                             <th>No</th>
                                             <th>Jenis Makanan</th>
                                             <th>Nama Makanan</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $row)
                                             <tr>
-                                                <th scope="row" class="row-number">{{ $loop->iteration }}</th>
+                                                <th scope="row">{{ $row->id }}</th>
                                                 <td>{{ $row->jenis_makanan }}</td>
                                                 <td>{{ $row->nama_makanan }}</td>
-                                                <td>
-                                                    <a href="/tampilmakanan/ {{ $row->id }}" class="btn btn-secondary">Edit</a>
-                                                    <a href="/hapusmakanan/{{ $row->id }}" class="btn btn-secondary">Hapus</a>
-                                                </td>  
                                             </tr>
 
                                         @endforeach

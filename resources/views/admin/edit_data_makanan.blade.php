@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Kriteria</title>
+    <title>Data Makanan</title>
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('../../vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -45,31 +45,33 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="dashboard_user.blade.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+            <li class="nav-item">
+                <a class="nav-link" href="home">
                     <span>Beranda</span></a>
             </li>
 
             <!-- Nav Item - Data Makanan -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="makanan">
-                    <i class="fa-solid fa-utensils"></i>
                     <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
                 <a class="nav-link" href="kriteria">
-                    <i class="fas fa-fw fa-table"></i>
                     <span>Data Kriteria</span></a>
+            </li>
+
+            <!-- Nav Item - Data Sub Kriteria -->
+            <li class="nav-item">
+                <a class="nav-link" href="subkriteria">
+                    <span>Data Sub Kriteria</span></a>
             </li>
 
             <!-- Nav Item - Hasil Rekomendasi -->
             <li class="nav-item">
                 <a class="nav-link" href="rekomendasi.blade.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Hasil Rekomendasi</span></a>
+                    <span>Perhitungan SAW</span></a>
             </li>
 
             <!-- Divider -->
@@ -86,6 +88,27 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-secondary topbar mb-4 static-top">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-light">Hi, Admin</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <form method="post" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class='dropdown-item'>
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -95,42 +118,28 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kriteria</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Edit Data Makanan</h6>
                         </div>
                         <div class="card-body">
-                        <a href="/tambahkriteria" class="btn btn-secondary">Tambah Data</a>
-                            <br><br>
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Kriteria</th>
-                                            <th>Bobot</th>
-                                            <th>Atribut</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $no = 1;
-                                        @endphp
-                                        @foreach ($data as $row)
-                                            <tr>
-                                                <th scope="row">{{ $no++ }}</th>
-                                                <td>{{ $row->nama }}</td>
-                                                <td>{{ $row->bobot_kriteria }}</td>
-                                                <td>{{ $row->atribut }}</td>
-                                                <td>
-                                                    <a href="/tampilkriteria/{{ $row->id }}" class="btn btn-secondary">Edit</a>
-                                                    <a href="/hapuskriteria/{{ $row->id }}" class="btn btn-secondary">Hapus</a>
-                                                </td>  
-                                            </tr>
-
-                                        @endforeach
-                                        
-                                    </tbody>
-                                </table>
+                            <div class="row justify-content-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <form action="/editmakanan/{{$data->id}}" method="POST">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Jenis Makanan</label>
+                                            <input type="text" name="jenis_makanan" class="form-control" id="exampleInputEmail1" 
+                                            aria-describedby="emailHelp" value="{{ $data->jenis_makanan}}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Nama Makanan</label>
+                                            <input type="text" name="nama_makanan" class="form-control" id="exampleInputEmail1" 
+                                            aria-describedby="emailHelp" value="{{ $data->nama_makanan}}">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

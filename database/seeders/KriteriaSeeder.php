@@ -15,10 +15,11 @@ class KriteriaSeeder extends Seeder
     public function run()
     {
         DB::table('kriterias')->insert([
-            'id' => '1',
-            'nama' => 'Natrium',
-            'bobot_kriteria' => '0,1',
-            'atribut' => 'Benefit',
+            ['id' => '1','nama' => 'Natrium','bobot_kriteria' => '0.1','atribut' => 'Benefit'],
+            ['id' => '2','nama' => 'Kalium','bobot_kriteria' => '0.1','atribut' => 'Benefit'],
+            ['id' => '3','nama' => 'Protein','bobot_kriteria' => '0.3','atribut' => 'Benefit'],
+            ['id' => '4','nama' => 'Indeks Glikemik','bobot_kriteria' => '0.2','atribut' => 'Benefit'],
+            ['id' => '5','nama' => 'Cara Pengolahan','bobot_kriteria' => '0.3','atribut' => 'Benefit'],
         ]);
     }
 }

@@ -44,28 +44,24 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="user">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
-            </li>
-
-            <!-- Nav Item - Data Makanan -->
-            <li class="nav-item">
-                <a class="nav-link" href="makanan">
-                    <i class="fa-solid fa-utensils"></i>
-                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
                 <a class="nav-link" href="user/kriteria">
-                    <i class="fas fa-fw fa-table"></i>
                     <span>Data Kriteria</span></a>
+            </li>
+
+            <!-- Nav Item - Data Makanan -->
+            <li class="nav-item">
+                <a class="nav-link" href="user/makanan">
+                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Hasil Rekomendasi -->
             <li class="nav-item">
                 <a class="nav-link" href="rekomendasi.blade.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>Hasil Rekomendasi</span></a>
             </li>
 

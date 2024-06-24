@@ -118,37 +118,26 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Makanan</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Makanan</h6>
                         </div>
                         <div class="card-body">
-                        <a href="/tambahmakanan" class="btn btn-secondary">Tambah Data</a>
-                            <br><br>
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Jenis Makanan</th>
-                                            <th>Nama Makanan</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($data as $row)
-                                            <tr>
-                                                <th scope="row" class="row-number">{{ $loop->iteration }}</th>
-                                                <td>{{ $row->jenis_makanan }}</td>
-                                                <td>{{ $row->nama_makanan }}</td>
-                                                <td>
-                                                    <a href="/tampilmakanan/ {{ $row->id }}" class="btn btn-secondary">Edit</a>
-                                                    <a href="/hapusmakanan/{{ $row->id }}" class="btn btn-secondary">Hapus</a>
-                                                </td>  
-                                            </tr>
-
-                                        @endforeach
-                                        
-                                    </tbody>
-                                </table>
+                            <div class="row justify-content-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <form action="/insertmakanan" method="POST">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Jenis Makanan</label>
+                                            <input type="text" name="jenis_makanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Nama Makanan</label>
+                                            <input type="text" name="nama_makanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
