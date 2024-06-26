@@ -64,7 +64,7 @@
 
             <!-- Nav Item - Hasil Rekomendasi -->
             <li class="nav-item">
-                <a class="nav-link" href="rekomendasi.blade.php">
+                <a class="nav-link" href="{{ url('user/rekomendasi') }}">
                     <span>Hasil Rekomendasi</span></a>
             </li>
 
@@ -106,7 +106,7 @@
                                     <tbody>
                                         @foreach ($data as $row)
                                             <tr>
-                                                <th scope="row">{{ $row->id }}</th>
+                                            <th scope="row" class="row-number">{{ $loop->iteration }}</th>
                                                 <td>{{ $row->jenis_makanan }}</td>
                                                 <td>{{ $row->nama_makanan }}</td>
                                             </tr>

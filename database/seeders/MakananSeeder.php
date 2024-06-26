@@ -15,12 +15,23 @@ class MakananSeeder extends Seeder
     public function run()
     {
         DB::table('makanans')->insert([
-            ['id' => '2', 'nama_makanan' => 'Nasi Jagung'],  
-            ['id' => '3', 'nama_makanan' => 'Nasi Putih'],
-            ['id' => '4', 'nama_makanan' => 'Roti Putih'],
-            ['id' => '5', 'nama_makanan' => 'Ketan Putih'],
-            ['id' => '6', 'nama_makanan' => 'Ketan Hitam'],
-            ['id' => '7', 'nama_makanan' => 'Kentang'],
+            ['jenis_makanan' => 'Karbohidrat', 'nama_makanan' => 'Nasi beras merah'],  
+            ['jenis_makanan' => 'Karbohidrat', 'nama_makanan' => 'Nasi jagung'],
+            ['jenis_makanan' => 'Karbohidrat', 'nama_makanan' => 'Nasi putih'],
+            ['jenis_makanan' => 'Karbohidrat', 'nama_makanan' => 'Roti putih'],
+            ['jenis_makanan' => 'Karbohidrat', 'nama_makanan' => 'Ketan putih'],
+            ['jenis_makanan' => 'Karbohidrat', 'nama_makanan' => 'Ketan hitam'],
+            ['jenis_makanan' => 'Karbohidrat', 'nama_makanan' => 'Kentang'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Tumis bandeng'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Sop konro'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Soto banjar'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Ayam taliwang'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Gulai kambing'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Cumi-cumi goreng'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Ikan mujahir pepes'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Tekwan'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Ayam goreng'],
+            ['jenis_makanan' => 'Masakan', 'nama_makanan' => 'Bebek daging goreng'],
         ]);
     }
 }

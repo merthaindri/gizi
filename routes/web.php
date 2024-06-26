@@ -8,8 +8,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\SubKriteriaController;
 use App\Http\Controllers\MakananController;
+use App\Http\Controllers\PerhitunganSAWController;
 use App\Http\Controllers\UserKriteriaController;
 use App\Http\Controllers\UserMakananController;
+use App\Http\Controllers\UserRekomendasiController;
 use Illuminate\Support\Facades\Auth;
 
 // Rute untuk pengguna tidak terautentikasi
@@ -22,7 +24,7 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/user/kriteria', [UserKriteriaController::class, 'userkriteria']);
     Route::get('/user/makanan', [UserMakananController::class, 'usermakanan']);
-
+    Route::get('/user/rekomendasi', [UserRekomendasiController::class, 'rekomendasi']);
 
     Auth::routes();
 });
@@ -52,4 +54,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tampilmakanan/{nama_makanan}', [MakananController::class, 'tampilmakanan'])->name('tampilmakanan');
     Route::post('/editmakanan/{nama_makanan}', [MakananController::class, 'editmakanan']);
     Route::get('/hapusmakanan/{nama_makanan}', [MakananController::class, 'hapusmakanan']);
+
+    Route::get('/perhitungansaw', [PerhitunganSAWController::class, 'perhitungansaw'])->name('perhitungansaw');
 });

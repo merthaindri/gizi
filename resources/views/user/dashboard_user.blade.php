@@ -61,7 +61,7 @@
 
             <!-- Nav Item - Hasil Rekomendasi -->
             <li class="nav-item">
-                <a class="nav-link" href="rekomendasi.blade.php">
+                <a class="nav-link" href="user/rekomendasi">
                     <span>Hasil Rekomendasi</span></a>
             </li>
 
@@ -87,6 +87,20 @@
 
                     <!-- Content Row -->
                     <div class="row">
+                        
+                        <!-- Data Kriteria -->
+                        <div class="col-xl-3 mb-5">
+                            <div class="card border shadow h-100 py-2 bg-secondary">
+                                <div class="card-body">
+                                    <div class="align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="h7 mb-0 font-weight-bold text-uppercase text-light text-center">
+                                                Data Kriteria</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Data Makanan -->
                         <div class="col-xl-3 mb-5">
@@ -96,20 +110,6 @@
                                         <div class="col mr-2">
                                             <div class="h7 mb-0 font-weight-bold text-uppercase text-light text-center">
                                                 Data Makanan</div>     
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <!-- Data Kriteria -->
-                        <div class="col-xl-3 mb-5">
-                            <div class="card border shadow h-100 py-2 bg-secondary">
-                                <div class="card-body">
-                                    <div class="align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h7 mb-0 font-weight-bold text-uppercase text-light text-center">
-                                                Data Kriteria</div>
                                         </div>
                                     </div>
                                 </div>

@@ -70,7 +70,7 @@
 
             <!-- Nav Item - Hasil Rekomendasi -->
             <li class="nav-item">
-                <a class="nav-link" href="rekomendasi.blade.php">
+                <a class="nav-link" href="perhitungansaw">
                     <span>Perhitungan SAW</span></a>
             </li>
 
