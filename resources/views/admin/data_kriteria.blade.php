@@ -50,22 +50,22 @@
                     <span>Beranda</span></a>
             </li>
 
-            <!-- Nav Item - Data Makanan -->
-            <li class="nav-item">
-                <a class="nav-link" href="makanan">
-                    <span>Data Makanan</span></a>
-            </li>
-
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item active">
                 <a class="nav-link" href="kriteria">
                     <span>Data Kriteria</span></a>
             </li>
 
-            <!-- Nav Item - Data Kriteria -->
+            <!-- Nav Item - Data Sub Kriteria -->
             <li class="nav-item">
                 <a class="nav-link" href="subkriteria">
                     <span>Data Sub Kriteria</span></a>
+            </li>
+
+            <!-- Nav Item - Data Makanan -->
+            <li class="nav-item">
+                <a class="nav-link" href="makanan">
+                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Hasil Rekomendasi -->
@@ -127,28 +127,26 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama Kriteria</th>
-                                            <th>Bobot</th>
-                                            <th>Atribut</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama Kriteria</th>
+                                            <th class="text-center">Bobot</th>
+                                            <th class="text-center">Atribut</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $row)
                                             <tr>
-                                                <th scope="row" class="row-number">{{ $loop->iteration }}</th>
-                                                <td>{{ $row->nama }}</td>
-                                                <td>{{ $row->bobot_kriteria }}</td>
-                                                <td>{{ $row->atribut }}</td>
-                                                <td>
+                                                <th scope="row" class="row-number text-center">{{ $loop->iteration }}</th>
+                                                <td class="text-center">{{ $row->nama }}</td>
+                                                <td class="text-center">{{ $row->bobot_kriteria }}</td>
+                                                <td class="text-center">{{ $row->atribut }}</td>
+                                                <td class="text-center">
                                                     <a href="/tampilkriteria/{{ $row->id }}" class="btn btn-secondary">Edit</a>
                                                     <a href="/hapuskriteria/{{ $row->id }}" class="btn btn-secondary">Hapus</a>
                                                 </td>  
                                             </tr>
-
                                         @endforeach
-                                        
                                     </tbody>
                                 </table>
                             </div>

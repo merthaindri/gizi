@@ -36,7 +36,6 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
                 <div class="sidebar-brand-text mx-3"> SPK REKOMENDASI</div>
             </a>
@@ -93,8 +92,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-light">Hi, Admin</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -124,17 +122,76 @@
                             <div class="row justify-content-center">
                                 <div class="card">
                                     <div class="card-body">
-                                    <form action="/insertmakanan" method="POST">
-                                        @csrf
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Jenis Makanan</label>
-                                            <input type="text" name="jenis_makanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Nama Makanan</label>
-                                            <input type="text" name="nama_makanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <form action="/insertmakanan" method="POST">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="jenis_makanan" class="form-label">Jenis Makanan</label>
+                                                <input type="text" name="jenis_makanan" class="form-control"
+                                                    id="jenis_makanan" aria-describedby="jenisMakananHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="nama_makanan" class="form-label">Nama Makanan</label>
+                                                <input type="text" name="nama_makanan" class="form-control"
+                                                    id="nama_makanan" aria-describedby="namaMakananHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="natrium" class="form-label">Natrium</label>
+                                                <select name="natrium" class="form-control" id="natrium">
+                                                    @foreach($subKriterias as $subKriteria)
+                                                        @if($subKriteria->nama_kriteria == 'Natrium')
+                                                            <option value="{{ $subKriteria->id }}">
+                                                                {{ $subKriteria->rentang_nilai }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="kalium" class="form-label">Kalium</label>
+                                                <select name="kalium" class="form-control" id="kalium">
+                                                    @foreach($subKriterias as $subKriteria)
+                                                        @if($subKriteria->nama_kriteria == 'Kalium')
+                                                            <option value="{{ $subKriteria->id }}">
+                                                                {{ $subKriteria->rentang_nilai }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="protein" class="form-label">Protein</label>
+                                                <select name="protein" class="form-control" id="protein">
+                                                    @foreach($subKriterias as $subKriteria)
+                                                        @if($subKriteria->nama_kriteria == 'Protein')
+                                                            <option value="{{ $subKriteria->id }}">
+                                                                {{ $subKriteria->rentang_nilai }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="indeks_glikemik" class="form-label">Indeks Glikemik</label>
+                                                <select name="indeks_glikemik" class="form-control"
+                                                    id="indeks_glikemik">
+                                                    @foreach($subKriterias as $subKriteria)
+                                                        @if($subKriteria->nama_kriteria == 'Indeks Glikemik')
+                                                            <option value="{{ $subKriteria->id }}">
+                                                                {{ $subKriteria->rentang_nilai }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="cara_pengolahan" class="form-label">Cara Pengolahan</label>
+                                                <select name="cara_pengolahan" class="form-control"
+                                                    id="cara_pengolahan">
+                                                    @foreach($subKriterias as $subKriteria)
+                                                        @if($subKriteria->nama_kriteria == 'Cara Pengolahan')
+                                                            <option value="{{ $subKriteria->id }}">
+                                                                {{ $subKriteria->rentang_nilai }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>
                                 </div>

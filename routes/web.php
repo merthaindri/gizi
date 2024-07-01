@@ -56,4 +56,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/hapusmakanan/{nama_makanan}', [MakananController::class, 'hapusmakanan']);
 
     Route::get('/perhitungansaw', [PerhitunganSAWController::class, 'perhitungansaw'])->name('perhitungansaw');
+
 });

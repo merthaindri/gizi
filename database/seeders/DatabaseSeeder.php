@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(KriteriaSeeder::class);
+        $this->call(MakananSeeder::class);
+        $this->call(SubKriteriaSeeder::class);
         $this->call(UserSeeder::class);
     }
 }

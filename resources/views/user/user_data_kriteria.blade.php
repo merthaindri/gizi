@@ -98,23 +98,21 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama Kriteria</th>
-                                            <th>Bobot</th>
-                                            <th>Atribut</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama Kriteria</th>
+                                            <th class="text-center">Bobot</th>
+                                            <th class="text-center">Atribut</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $row)
                                             <tr>
-                                            <th scope="row" class="row-number">{{ $loop->iteration }}</th>
-                                                <td>{{ $row->nama }}</td>
-                                                <td>{{ $row->bobot_kriteria }}</td>
-                                                <td>{{ $row->atribut }}</td>
+                                            <th scope="row" class="row-number text-center">{{ $loop->iteration }}</th>
+                                                <td class="text-center">{{ $row->nama }}</td>
+                                                <td class="text-center">{{ $row->bobot_kriteria }}</td>
+                                                <td class="text-center">{{ $row->atribut }}</td>
                                             </tr>
-
                                         @endforeach
-                                        
                                     </tbody>
                                 </table>
                             </div>

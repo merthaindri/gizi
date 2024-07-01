@@ -13,8 +13,7 @@
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('../../vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -36,7 +35,6 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
                 <div class="sidebar-brand-text mx-3"> SPK REKOMENDASI</div>
             </a>
@@ -48,12 +46,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="home">
                     <span>Beranda</span></a>
-            </li>
-
-            <!-- Nav Item - Data Makanan -->
-            <li class="nav-item active">
-                <a class="nav-link" href="makanan">
-                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Data Kriteria -->
@@ -68,7 +60,13 @@
                     <span>Data Sub Kriteria</span></a>
             </li>
 
-            <!-- Nav Item - Hasil Rekomendasi -->
+            <!-- Nav Item - Data Makanan -->
+            <li class="nav-item active">
+                <a class="nav-link" href="makanan">
+                    <span>Data Makanan</span></a>
+            </li>
+
+            <!-- Nav Item - Perhitungan SAW -->
             <li class="nav-item">
                 <a class="nav-link" href="perhitungansaw">
                     <span>Perhitungan SAW</span></a>
@@ -93,12 +91,10 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-light">Hi, Admin</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <form method="post" action="{{ route('logout') }}">
                                     @csrf
                                     <button type="submit" class='dropdown-item'>
@@ -121,32 +117,42 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Makanan</h6>
                         </div>
                         <div class="card-body">
-                        <a href="/tambahmakanan" class="btn btn-secondary">Tambah Data</a>
+                            <a href="/tambahmakanan" class="btn btn-secondary">Tambah Data</a>
                             <br><br>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Jenis Makanan</th>
-                                            <th>Nama Makanan</th>
-                                            <th>Aksi</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Jenis Makanan</th>
+                                            <th class="text-center">Nama Makanan</th>
+                                            <th class="text-center">Natrium</th>
+                                            <th class="text-center">Kalium</th>
+                                            <th class="text-center">Protein</th>
+                                            <th class="text-center">Indeks Glikemik</th>
+                                            <th class="text-center">Cara Pengolahan</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $row)
                                             <tr>
-                                                <th scope="row" class="row-number">{{ $loop->iteration }}</th>
-                                                <td>{{ $row->jenis_makanan }}</td>
-                                                <td>{{ $row->nama_makanan }}</td>
-                                                <td>
-                                                    <a href="/tampilmakanan/ {{ $row->id }}" class="btn btn-secondary">Edit</a>
+                                  
+                                                <th scope="row" class="row-number text-center">{{ $loop->iteration }}</th>
+                                                <td class="text-center">{{ $row->jenis_makanan }}</td>
+                                                <td class="text-center">{{ $row->nama_makanan }}</td>
+                                                <td class="text-center">{{ $row->natriumInfo->rentang_nilai ?? "-"}}</td>
+                                                <td class="text-center">{{ $row->kaliumInfo->rentang_nilai?? "-" }}</td>
+                                                <td class="text-center">{{ $row->proteinInfo->rentang_nilai ?? "-"}}</td>
+                                                <td class="text-center">{{ $row->indeksGlikemik->rentang_nilai ?? "-"}}</td>
+                                                <td class="text-center">{{ $row->caraPengolahan->rentang_nilai ?? "-"}}</td>
+                                                <td class="text-center">
+                                                    <a href="/tampilmakanan/{{ $row->id }}" class="btn btn-secondary">Edit</a>
+                                                    <br><br>
                                                     <a href="/hapusmakanan/{{ $row->id }}" class="btn btn-secondary">Hapus</a>
                                                 </td>  
                                             </tr>
-
                                         @endforeach
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -193,9 +199,6 @@
     <!-- Page level plugins -->
     <script src="{{ asset('../vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('../vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    <!-- <script src="{{ asset('../js/demo/datatables-demo.js') }}"></script> -->
 
 </body>
 
