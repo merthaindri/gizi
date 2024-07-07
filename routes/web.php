@@ -51,9 +51,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/makanan', [MakananController::class, 'makanan'])->name('makanan');
     Route::get('/tambahmakanan', [MakananController::class, 'tambahmakanan']);
     Route::post('/insertmakanan', [MakananController::class, 'insertmakanan']);
-    Route::get('/tampilmakanan/{nama_makanan}', [MakananController::class, 'tampilmakanan'])->name('tampilmakanan');
-    Route::post('/editmakanan/{nama_makanan}', [MakananController::class, 'editmakanan']);
-    Route::get('/hapusmakanan/{nama_makanan}', [MakananController::class, 'hapusmakanan']);
+    Route::get('/tampilmakanan/{id}', [MakananController::class, 'tampilmakanan'])->name('tampilmakanan');
+    Route::post('/editmakanan/{id}', [MakananController::class, 'editmakanan']);
+    Route::get('/hapusmakanan/{id}', [MakananController::class, 'hapusmakanan']);
 
     Route::get('/perhitungansaw', [PerhitunganSAWController::class, 'perhitungansaw'])->name('perhitungansaw');
 

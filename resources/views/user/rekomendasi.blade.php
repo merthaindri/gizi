@@ -94,7 +94,66 @@
                             <h6 class="m-0 font-weight-bold text-primary">Hasil Rekomendasi</h6>
                         </div>
                         <div class="card-body">
-            
+                        <form method="GET" action="{{ url('user/rekomendasi') }}">
+                                <div class="form-group">
+                                    <label for="jenis_makanan">Jenis Makanan</label>
+                                    <select name="jenis_makanan" id="jenis_makanan" class="form-control">
+                                        <option value="">Pilih Jenis Makanan</option>
+                                        <option value="Karbohidrat" {{ $jenisMakanan == 'Karbohidrat' ? 'selected' : '' }}>Karbohidrat</option>
+                                        <option value="Masakan Protein Hewani" {{ $jenisMakanan == 'Masakan Protein Hewani' ? 'selected' : '' }}>Masakan Protein Hewani</option>
+                                        <option value="Masakan Protein Nabati" {{ $jenisMakanan == 'Masakan Protein Nabati' ? 'selected' : '' }}>Masakan Protein Nabati</option>
+                                        <option value="Sayur" {{ $jenisMakanan == 'Sayur' ? 'selected' : '' }}>Sayur</option>
+                                        <option value="Buah" {{ $jenisMakanan == 'Buah' ? 'selected' : '' }}>Buah</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </form>
+
+                            @if($jenisMakanan)
+                            <div class="mt-4">
+                                <h6 class="font-weight-bold">Rekomendasi</h6>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Makanan</th>
+                                            <th>Nilai Preferensi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($rankings as $index => $ranking)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $ranking['nama_makanan'] }}</td>
+                                            <td>{{ $ranking['nilai_preferensi'] }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="mt-4">
+                                <h6 class="font-weight-bold">Tidak Direkomendasikan</h6>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Makanan</th>
+                                            <th>Nilai Preferensi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($nonRecommendations as $index => $nonRecommendation)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $nonRecommendation['nama_makanan'] }}</td>
+                                            <td>{{ $nonRecommendation['nilai_preferensi'] }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            @endif
                         </div>
                     </div>
 

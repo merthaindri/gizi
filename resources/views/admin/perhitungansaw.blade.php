@@ -121,8 +121,11 @@
                                     <label for="jenis_makanan">Jenis Makanan</label>
                                     <select name="jenis_makanan" id="jenis_makanan" class="form-control">
                                         <option value="">Pilih Jenis Makanan</option>
-                                        <option value="Masakan" {{ $jenisMakanan == 'Masakan' ? 'selected' : '' }}>Masakan</option>
                                         <option value="Karbohidrat" {{ $jenisMakanan == 'Karbohidrat' ? 'selected' : '' }}>Karbohidrat</option>
+                                        <option value="Masakan Protein Hewani" {{ $jenisMakanan == 'Masakan Protein Hewani' ? 'selected' : '' }}>Masakan Protein Hewani</option>
+                                        <option value="Masakan Protein Nabati" {{ $jenisMakanan == 'Masakan Protein Nabati' ? 'selected' : '' }}>Masakan Protein Nabati</option>
+                                        <option value="Sayur" {{ $jenisMakanan == 'Sayur' ? 'selected' : '' }}>Sayur</option>
+                                        <option value="Buah" {{ $jenisMakanan == 'Buah' ? 'selected' : '' }}>Buah</option>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-secondary">Submit</button>
@@ -130,6 +133,7 @@
 
                             @if($jenisMakanan)
                             <div class="table-responsive">
+                                
                                 <!-- Tabel Matriks Keputusan -->
                                 <h6 class="mt-4 font-weight-bold text-primary">Matriks Keputusan</h6>
                                 <table class="table table-bordered" width="100%" cellspacing="0">
@@ -177,10 +181,11 @@
                                 </table>
 
                                 <!-- Tabel Nilai Preferensi -->
-                                <h6 class="mt-4 font-weight-bold text-primary">Nilai Preferensi</h6>
+                                <h6 class="mt-4 font-weight-bold text-primary">Nilai Preferensi dan Peringkat</h6>
                                 <table class="table table-bordered" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Peringkat</th>
                                             <th>Nama Makanan</th>
                                             <th>Nilai Preferensi</th>
                                         </tr>
@@ -188,6 +193,7 @@
                                     <tbody>
                                         @foreach ($preferences as $foodId => $preference)
                                         <tr>
+                                            <th scope="row" class="row-number">{{ $loop->iteration }}</th>
                                             <td>{{ $makanan->find($foodId)->nama_makanan }}</td>
                                             <td>{{ number_format($preference, 2) }}</td>
                                         </tr>
