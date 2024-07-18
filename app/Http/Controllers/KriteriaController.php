@@ -21,12 +21,12 @@ class KriteriaController extends Controller
     public function editkriteria(Request $request, $id){
         $data = Kriteria::find($id);
         $data->update($request->all());
-        return redirect()->route('kriteria');
+        return redirect()->route('kriteria')->with('success', 'Data Kriteria berhasil diperbarui!');
     }
 
     public function hapuskriteria($id){
         $data = Kriteria::find($id);
         $data->delete();
-        return redirect()->route('kriteria');
+        return redirect()->route('kriteria')->with('success', 'Data Kriteria berhasil dihapus!');
     }
 }

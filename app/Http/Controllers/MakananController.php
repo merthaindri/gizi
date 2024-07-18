@@ -46,7 +46,7 @@ class MakananController extends Controller
         ]);
 
         Makanan::create($request->all());
-        return redirect()->route('makanan');
+        return redirect()->route('makanan')->with('success', 'Data Makanan berhasil ditambahkan!');
     }
 
     public function tampilmakanan($id){
@@ -67,12 +67,12 @@ class MakananController extends Controller
         ]);
         $data = Makanan::find($id);
         $data->update($request->all());
-        return redirect()->route('makanan');
+        return redirect()->route('makanan')->with('success', 'Data Makanan berhasil diperbarui!');
 }
 
     public function hapusmakanan($id){
         $data = Makanan::find($id);
         $data->delete();
-        return redirect()->route('makanan');
+        return redirect()->route('makanan')->with('success', 'Data Makanan berhasil dihapus!');
     }
 }

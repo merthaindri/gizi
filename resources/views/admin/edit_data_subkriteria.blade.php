@@ -114,7 +114,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -141,7 +141,7 @@
                                             <input type="text" name="nilai" class="form-control" id="exampleInputEmail1" 
                                             aria-describedby="emailHelp" value="{{ $data->nilai}}"> 
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-secondary">Submit</button>
                                         </form>
                                     </div>
                                 </div>

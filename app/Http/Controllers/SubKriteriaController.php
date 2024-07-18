@@ -19,7 +19,7 @@ class SubKriteriaController extends Controller
 
     public function insertsubkriteria(Request $request) {
         SubKriteria::create($request->all());
-        return redirect()->route('subkriteria');
+        return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil ditambahkan!');
     }
 
     public function tampilsubkriteria($id){
@@ -30,12 +30,12 @@ class SubKriteriaController extends Controller
     public function editsubkriteria(Request $request, $id){
         $data = SubKriteria::find($id);
         $data->update($request->all());
-        return redirect()->route('subkriteria');
+        return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil diperbarui!');
     }
 
     public function hapussubkriteria($id){
         $data = SubKriteria::find($id);
         $data->delete();
-        return redirect()->route('subkriteria');
+        return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil dihapus!');
     }
 }
