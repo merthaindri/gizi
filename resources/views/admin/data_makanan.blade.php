@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -117,6 +116,19 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Makanan</h6>
                         </div>
                         <div class="card-body">
+                        <form method="GET" class="form-inline">
+                            <div class="form-group mr-3">
+                                <label for="jenis_makanan" class="mr-2">Jenis Makanan</label>
+                                <select name="jenis_makanan" id="jenis_makanan" class="form-control">
+                                    <option value="">Filter</option>
+                                    @foreach ($jenisMakananOptions as $option)
+                                        <option value="{{ $option }}" {{ $jenisMakanan == $option ? 'selected' : '' }}>{{ $option }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Submit</button>
+                        </form>
+                            <br>
                             <a href="/tambahmakanan" class="btn btn-secondary">Tambah Data</a>
                             <br><br>
                             <div class="table-responsive">
@@ -137,7 +149,6 @@
                                     <tbody>
                                         @foreach ($data as $row)
                                             <tr>
-                                  
                                                 <th scope="row" class="row-number text-center">{{ $loop->iteration }}</th>
                                                 <td class="text-center">{{ $row->jenis_makanan }}</td>
                                                 <td class="text-center">{{ $row->nama_makanan }}</td>

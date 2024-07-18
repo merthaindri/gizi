@@ -121,8 +121,6 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Kriteria</h6>
                         </div>
                         <div class="card-body">
-                        <a href="/tambahkriteria" class="btn btn-secondary">Tambah Data</a>
-                            <br><br>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>

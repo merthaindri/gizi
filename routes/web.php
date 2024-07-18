@@ -22,7 +22,6 @@ Route::middleware(['guest'])->group(function () {
         return view('user.dashboard_user');
     })->name('user.dashboard');
 
-    Route::get('/user/kriteria', [UserKriteriaController::class, 'userkriteria']);
     Route::get('/user/makanan', [UserMakananController::class, 'usermakanan']);
     Route::get('/user/rekomendasi', [UserRekomendasiController::class, 'rekomendasi']);
 
@@ -35,8 +34,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/kriteria', [KriteriaController::class, 'kriteria'])->name('kriteria');
-    Route::get('/tambahkriteria', [KriteriaController::class, 'tambahkriteria']);
-    Route::post('/insertkriteria', [KriteriaController::class, 'insertkriteria']);
     Route::get('/tampilkriteria/{id}', [KriteriaController::class, 'tampilkriteria'])->name('tampilkriteria');
     Route::post('/editkriteria/{id}', [KriteriaController::class, 'editkriteria']);
     Route::get('/hapuskriteria/{id}', [KriteriaController::class, 'hapuskriteria']);

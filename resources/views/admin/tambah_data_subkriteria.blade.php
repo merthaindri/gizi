@@ -50,12 +50,6 @@
                     <span>Beranda</span></a>
             </li>
 
-            <!-- Nav Item - Data Makanan -->
-            <li class="nav-item">
-                <a class="nav-link" href="makanan">
-                    <span>Data Makanan</span></a>
-            </li>
-
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
                 <a class="nav-link" href="kriteria">
@@ -66,6 +60,12 @@
             <li class="nav-item active">
                 <a class="nav-link" href="subkriteria">
                     <span>Data Sub Kriteria</span></a>
+            </li>
+
+            <!-- Nav Item - Data Makanan -->
+            <li class="nav-item">
+                <a class="nav-link" href="makanan">
+                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Hasil Rekomendasi -->
@@ -138,7 +138,7 @@
                                             <label for="exampleInputEmail1" class="form-label">Nilai</label>
                                             <input type="text" name="nilai" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-secondary">Submit</button>
                                         </form>
                                     </div>
                                 </div>

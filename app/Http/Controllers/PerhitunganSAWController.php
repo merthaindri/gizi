@@ -11,13 +11,19 @@ class PerhitunganSAWController extends Controller
 {
     public function perhitunganSAW(Request $request)
     {
+        
         $jenisMakanan = $request->input('jenis_makanan');
 
-        // Ambil data kriteria dan subkriteria
+        // Mengambil data kriteria dan subkriteria
         $kriteria = Kriteria::all()->keyBy('nama');
         $subkriteria = SubKriteria::all()->keyBy('id');
+        
+        // Daftar jenis makanan untuk dropdown filter
+        $jenisMakananOptions = [
+            'Karbohidrat', 'Masakan Protein Hewani dan Nabati' , 'Sayur'
+        ];
 
-        // Ambil data makanan sesuai dengan jenis makanan yang dipilih
+        // Mengambil data makanan sesuai dengan jenis makanan yang dipilih
         if ($jenisMakanan) {
             $makanan = Makanan::where('jenis_makanan', $jenisMakanan)->get();
         } else {
@@ -84,7 +90,7 @@ class PerhitunganSAWController extends Controller
             }
         }
 
-        // Hitung nilai preferensi untuk setiap makanan
+        // Menghitung nilai preferensi untuk setiap makanan
         $preferences = [];
         foreach ($makanan as $food) {
             $preferences[$food->id] = 0;
@@ -95,11 +101,11 @@ class PerhitunganSAWController extends Controller
             }
         }
 
-        // Urutkan makanan berdasarkan nilai preferensi
+        // Mengurutkan makanan berdasarkan nilai preferensi
         arsort($preferences);
 
 
-        // Ambil nama makanan dan nilai preferensinya untuk ditampilkan
+        // Mengambil nama makanan dan nilai preferensi untuk ditampilkan
         $rankings = [];
         foreach ($preferences as $foodId => $preference) {
             $food = $makanan->find($foodId);
@@ -109,6 +115,6 @@ class PerhitunganSAWController extends Controller
             ];
         }
 
-        return view('admin.perhitungansaw', compact('makanan', 'kriteria', 'subkriteria', 'rankings', 'normalizedMatrix', 'preferences', 'decisionMatrix', 'jenisMakanan'));
+        return view('admin.perhitungansaw', compact('makanan', 'kriteria', 'subkriteria', 'rankings', 'normalizedMatrix', 'preferences', 'decisionMatrix', 'jenisMakanan', 'jenisMakananOptions'));
     }
 }

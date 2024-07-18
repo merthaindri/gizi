@@ -24,11 +24,11 @@ class CreateMakanansTable extends Migration
             $table->unsignedBigInteger('indeks_glikemik')->nullable();
             $table->unsignedBigInteger('cara_pengolahan')->nullable();
 
-            $table->foreign('natrium')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign('kalium')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign('protein')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign('indeks_glikemik')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign('cara_pengolahan')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('natrium')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('CASCADE');
+            $table->foreign('kalium')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('CASCADE');
+            $table->foreign('protein')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('CASCADE');
+            $table->foreign('indeks_glikemik')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('CASCADE');
+            $table->foreign('cara_pengolahan')->references('id')->on('sub_kriterias')->onUpdate('NO ACTION')->onDelete('CASCADE');
 
             $table->index('natrium');
             $table->index('kalium');

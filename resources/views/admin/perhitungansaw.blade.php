@@ -116,16 +116,14 @@
                             <h6 class="m-0 font-weight-bold text-primary">Perhitungan SAW</h6>
                         </div>
                         <div class="card-body">
-                            <form method="GET" action="{{ url('perhitungansaw') }}">
-                                <div class="form-group">
-                                    <label for="jenis_makanan">Jenis Makanan</label>
+                            <form method="GET" class="form-inline">
+                                <div class="form-group mr-3">
+                                    <label for="jenis_makanan" class="mr-2">Jenis Makanan</label>
                                     <select name="jenis_makanan" id="jenis_makanan" class="form-control">
-                                        <option value="">Pilih Jenis Makanan</option>
-                                        <option value="Karbohidrat" {{ $jenisMakanan == 'Karbohidrat' ? 'selected' : '' }}>Karbohidrat</option>
-                                        <option value="Masakan Protein Hewani" {{ $jenisMakanan == 'Masakan Protein Hewani' ? 'selected' : '' }}>Masakan Protein Hewani</option>
-                                        <option value="Masakan Protein Nabati" {{ $jenisMakanan == 'Masakan Protein Nabati' ? 'selected' : '' }}>Masakan Protein Nabati</option>
-                                        <option value="Sayur" {{ $jenisMakanan == 'Sayur' ? 'selected' : '' }}>Sayur</option>
-                                        <option value="Buah" {{ $jenisMakanan == 'Buah' ? 'selected' : '' }}>Buah</option>
+                                        <option value="">Filter</option>
+                                        @foreach ($jenisMakananOptions as $option)
+                                            <option value="{{ $option }}" {{ $jenisMakanan == $option ? 'selected' : '' }}>{{ $option }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-secondary">Submit</button>

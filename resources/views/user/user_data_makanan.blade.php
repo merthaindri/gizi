@@ -50,12 +50,6 @@
                     <span>Beranda</span></a>
             </li>
 
-            <!-- Nav Item - Data Kriteria -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('user/kriteria') }}">
-                    <span>Data Kriteria</span></a>
-            </li>
-
             <!-- Nav Item - Data Makanan -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url('user/makanan') }}">
@@ -94,28 +88,49 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Makanan</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Jenis Makanan</th>
-                                            <th>Nama Makanan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($data as $row)
+                        <form method="GET" class="form-inline">
+                            <div class="form-group mr-3">
+                                <label for="jenis_makanan" class="mr-2">Jenis Makanan</label>
+                                <select name="jenis_makanan" id="jenis_makanan" class="form-control">
+                                    <option value="">Filter</option>
+                                    @foreach ($jenisMakananOptions as $option)
+                                        <option value="{{ $option }}" {{ $jenisMakanan == $option ? 'selected' : '' }}>{{ $option }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Submit</button>
+                        </form>
+                        <br>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Jenis Makanan</th>
+                                        <th>Nama Makanan</th>
+                                        <th>Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $row)
+                                        @if(!$jenisMakanan || $row->jenis_makanan == $jenisMakanan)
                                             <tr>
-                                            <th scope="row" class="row-number">{{ $loop->iteration }}</th>
+                                                <th scope="row" class="row-number">{{ $loop->iteration }}</th>
                                                 <td>{{ $row->jenis_makanan }}</td>
                                                 <td>{{ $row->nama_makanan }}</td>
+                                                <td>
+                                                    Natrium: {{ $row->natriumInfo->rentang_nilai ?? "-" }} <br>
+                                                    Kalium: {{ $row->kaliumInfo->rentang_nilai ?? "-" }} <br>
+                                                    Protein: {{ $row->proteinInfo->rentang_nilai ?? "-" }} <br>
+                                                    Indeks Glikemik: {{ $row->indeksGlikemik->rentang_nilai ?? "-" }} <br>
+                                                    Cara Pengolahan: {{ $row->caraPengolahan->rentang_nilai ?? "-" }}
+                                                </td>
                                             </tr>
-
-                                        @endforeach
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                         </div>
                     </div>
 

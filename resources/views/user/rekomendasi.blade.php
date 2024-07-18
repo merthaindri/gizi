@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Kriteria</title>
+    <title>Hasil Rekomendasi</title>
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('../../vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -50,12 +50,6 @@
                     <span>Beranda</span></a>
             </li>
 
-            <!-- Nav Item - Data Kriteria -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('user/kriteria') }}">
-                    <span>Data Kriteria</span></a>
-            </li>
-
             <!-- Nav Item - Data Makanan -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('user/makanan') }}">
@@ -94,18 +88,16 @@
                             <h6 class="m-0 font-weight-bold text-primary">Hasil Rekomendasi</h6>
                         </div>
                         <div class="card-body">
-                        <form method="GET" action="{{ url('user/rekomendasi') }}">
-                                <div class="form-group">
-                                    <label for="jenis_makanan">Jenis Makanan</label>
+                        <form method="GET" class="form-inline">
+                            <div class="form-group mr-3">
+                                <label for="jenis_makanan" class="mr-2">Jenis Makanan</label>
                                     <select name="jenis_makanan" id="jenis_makanan" class="form-control">
-                                        <option value="">Pilih Jenis Makanan</option>
-                                        <option value="Karbohidrat" {{ $jenisMakanan == 'Karbohidrat' ? 'selected' : '' }}>Karbohidrat</option>
-                                        <option value="Masakan Protein Hewani" {{ $jenisMakanan == 'Masakan Protein Hewani' ? 'selected' : '' }}>Masakan Protein Hewani</option>
-                                        <option value="Masakan Protein Nabati" {{ $jenisMakanan == 'Masakan Protein Nabati' ? 'selected' : '' }}>Masakan Protein Nabati</option>
-                                        <option value="Sayur" {{ $jenisMakanan == 'Sayur' ? 'selected' : '' }}>Sayur</option>
-                                        <option value="Buah" {{ $jenisMakanan == 'Buah' ? 'selected' : '' }}>Buah</option>
+                                        <option value="">Pilih jenis makanan</option>
+                                        @foreach ($jenisMakananOptions as $option)
+                                            <option value="{{ $option }}" {{ $jenisMakanan == $option ? 'selected' : '' }}>{{ $option }}</option>
+                                        @endforeach
                                     </select>
-                                </div>
+                            </div>
                                 <button type="submit" class="btn btn-secondary">Submit</button>
                             </form>
 

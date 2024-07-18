@@ -13,15 +13,6 @@ class KriteriaController extends Controller
         return view('admin.data_kriteria', compact('data'));
     }
 
-    public function tambahkriteria() {
-        return view('admin.tambah_data_kriteria');
-    }
-
-    public function insertkriteria(Request $request) {
-        Kriteria::create($request->all());
-        return redirect()->route('kriteria');
-    }
-
     public function tampilkriteria($id){
         $data = Kriteria::find($id);
         return view('admin.edit_data_kriteria', compact('data'));

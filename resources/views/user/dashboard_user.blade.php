@@ -47,12 +47,6 @@
                     <span>Beranda</span></a>
             </li>
 
-            <!-- Nav Item - Data Kriteria -->
-            <li class="nav-item">
-                <a class="nav-link" href="user/kriteria">
-                    <span>Data Kriteria</span></a>
-            </li>
-
             <!-- Nav Item - Data Makanan -->
             <li class="nav-item">
                 <a class="nav-link" href="user/makanan">
@@ -83,55 +77,21 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Content Row -->
-                    <div class="row">
-                        
-                        <!-- Data Kriteria -->
-                        <div class="col-xl-3 mb-5">
-                            <div class="card border shadow h-100 py-2 bg-secondary">
-                                <div class="card-body">
-                                    <div class="align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h7 mb-0 font-weight-bold text-uppercase text-light text-center">
-                                                Data Kriteria</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="container-fluid mt-5">
+                    <div class="row my-4">
+                        <div class="col-md-5 text-center">
+                            <img src="img\makanans.png" class="img-fluid rounded" alt="Deskripsi Gambar" style="width: 280px; height: 400px;">
                         </div>
-
-                        <!-- Data Makanan -->
-                        <div class="col-xl-3 mb-5">
-                            <div class="card border shadow h-100 py-2 bg-secondary">
-                                <div class="card-body">
-                                    <div class="align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h7 mb-0 font-weight-bold text-uppercase text-light text-center">
-                                                Data Makanan</div>     
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Hasil Rekomendasi -->
-                        <div class="col-xl-3 mb-5">
-                            <div class="card border shadow h-100 py-2 bg-secondary">
-                                <div class="card-body">
-                                    <div class="align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h7 mb-0 font-weight-bold text-uppercase text-light text-center">
-                                                Hasil Rekomendasi</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-7">
+                            <h2>Sistem Pendukung Keputusan Rekomendasi Makanan bagi Penderita Diabetes Melitus dengan Komplikasi Gagal Ginjal Kronik</h2>
+                            <br>
+                            <p style="text-align: justify;">Sistem ini dapat digunakan untuk memberikan panduan kepada penderita diabetes dengan komplikasi gagal ginjal kronik, serta masyarakat umum dalam memilih makanan yang sehat. 
+                                Dengan didukung kemudahan akses, sistem ini membantu pengguna dalam memahami nutrisi seperti rendah natrium, rendah kalium, rendah indeks glikemik, kebutuhan protein, dan 
+                                cara pengolahan yang tepat. Natrium sebaiknya tidak lebih dari 200 mg untuk menjaga tekanan darah tetap stabil. Selain itu, kadar kalium sebaiknya di bawah 100 mg, dan 
+                                indeks glikemik yang rendah, yaitu di bawah 55, juga penting karena membantu mengontrol gula darah. </p>   
                         </div>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
