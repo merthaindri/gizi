@@ -18,8 +18,12 @@ class SubKriteriaController extends Controller
     }
 
     public function insertsubkriteria(Request $request) {
-        SubKriteria::create($request->all());
-        return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil ditambahkan!');
+        try {
+            SubKriteria::create($request->all());
+            return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menambahkan data sub kriteria.');
+        }
     }
 
     public function tampilsubkriteria($id){
@@ -28,14 +32,22 @@ class SubKriteriaController extends Controller
     }
 
     public function editsubkriteria(Request $request, $id){
-        $data = SubKriteria::find($id);
-        $data->update($request->all());
-        return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil diperbarui!');
+        try {
+            $data = SubKriteria::find($id);
+            $data->update($request->all());
+            return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui data sub kriteria.');
+        }
     }
 
     public function hapussubkriteria($id){
-        $data = SubKriteria::find($id);
-        $data->delete();
-        return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil dihapus!');
+        try {
+            $data = SubKriteria::find($id);
+            $data->delete();
+            return redirect()->route('subkriteria')->with('success', 'Data Sub Kriteria berhasil dihapus!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data sub kriteria.');
+        }
     }
 }

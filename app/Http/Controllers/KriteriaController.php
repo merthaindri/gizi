@@ -19,14 +19,22 @@ class KriteriaController extends Controller
     }
 
     public function editkriteria(Request $request, $id){
-        $data = Kriteria::find($id);
-        $data->update($request->all());
-        return redirect()->route('kriteria')->with('success', 'Data Kriteria berhasil diperbarui!');
+        try {
+            $data = Kriteria::find($id);
+            $data->update($request->all());
+            return redirect()->route('kriteria')->with('success', 'Data Kriteria berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui data kriteria.');
+        }
     }
 
     public function hapuskriteria($id){
-        $data = Kriteria::find($id);
-        $data->delete();
-        return redirect()->route('kriteria')->with('success', 'Data Kriteria berhasil dihapus!');
+        try {
+            $data = Kriteria::find($id);
+            $data->delete();
+            return redirect()->route('kriteria')->with('success', 'Data Kriteria berhasil dihapus!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data kriteria.');
+        }
     }
 }

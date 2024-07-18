@@ -45,8 +45,12 @@ class MakananController extends Controller
             'cara_pengolahan' => 'required|exists:sub_kriterias,id',
         ]);
 
-        Makanan::create($request->all());
-        return redirect()->route('makanan')->with('success', 'Data Makanan berhasil ditambahkan!');
+        try {
+            Makanan::create($request->all());
+            return redirect()->route('makanan')->with('success', 'Data Makanan berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menambahkan makanan.');
+        };
     }
 
     public function tampilmakanan($id){
@@ -65,14 +69,22 @@ class MakananController extends Controller
             'indeks_glikemik' => 'required|exists:sub_kriterias,id',
             'cara_pengolahan' => 'required|exists:sub_kriterias,id',
         ]);
-        $data = Makanan::find($id);
-        $data->update($request->all());
-        return redirect()->route('makanan')->with('success', 'Data Makanan berhasil diperbarui!');
+        try {
+            $data = Makanan::find($id);
+            $data->update($request->all());
+            return redirect()->route('makanan')->with('success', 'Data Makanan berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui data makanan.');
+        }
 }
 
     public function hapusmakanan($id){
-        $data = Makanan::find($id);
-        $data->delete();
-        return redirect()->route('makanan')->with('success', 'Data Makanan berhasil dihapus!');
+        try {
+            $data = Makanan::find($id);
+            $data->delete();
+            return redirect()->route('makanan')->with('success', 'Data Makanan berhasil dihapus!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data makanan.');
+        }
     }
 }

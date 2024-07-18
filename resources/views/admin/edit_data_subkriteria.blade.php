@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Kriteria</title>
+    <title>Data Sub Kriteria</title>
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('../../vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -50,12 +50,6 @@
                     <span>Beranda</span></a>
             </li>
 
-            <!-- Nav Item - Data Makanan -->
-            <li class="nav-item active">
-                <a class="nav-link" href="makanan">
-                    <span>Data Makanan</span></a>
-            </li>
-
             <!-- Nav Item - Data Kriteria -->
             <li class="nav-item">
                 <a class="nav-link" href="kriteria">
@@ -66,6 +60,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="subkriteria">
                     <span>Data Sub Kriteria</span></a>
+            </li>
+
+            <!-- Nav Item - Data Makanan -->
+            <li class="nav-item active">
+                <a class="nav-link" href="makanan">
+                    <span>Data Makanan</span></a>
             </li>
 
             <!-- Nav Item - Hasil Rekomendasi -->
